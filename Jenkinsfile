@@ -7,6 +7,7 @@ pipeline {
                 sh '''
                     echo "Multiline step works too"
                     ls -lah
+                    echo "ola"
                 '''
             }
         }
