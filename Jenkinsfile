@@ -4,17 +4,27 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building'
-            }
-        }
         stage('Test') {
             steps {
                 echo 'Testing'
             }
         }
-        stage('Deploy') {
+        stage('Build') {
+            steps {
+                echo 'Building'
+            }
+        }
+        stage('Deploy-develop') {
+            steps {
+                echo 'Deploying'
+            }
+        }
+        stage('Deploy-staging') {
+            steps {
+                echo 'Deploying'
+            }
+        }
+        stage('Deploy-onpremise') {
             steps {
                 echo 'Deploying'
             }
