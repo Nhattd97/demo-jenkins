@@ -1,33 +1,42 @@
 pipeline {
-    agent any
-    options {
-        skipStagesAfterUnstable()
-    }
-    stages {
+  agent any
+  stages {
+    stage('Test') {
+      parallel {
         stage('Test') {
-            steps {
-                echo 'Testing'
-            }
+          steps {
+            echo 'Testing'
+          }
         }
-        stage('Build') {
-            steps {
-                echo 'Building'
-            }
+        stage('test success') {
+          steps {
+            sh 'echo "Hello Nhat"'
+          }
         }
-        stage('Deploy-develop') {
-            steps {
-                echo 'Deploying'
-            }
-        }
-        stage('Deploy-staging') {
-            steps {
-                echo 'Deploying'
-            }
-        }
-        stage('Deploy-onpremise') {
-            steps {
-                echo 'Deploying'
-            }
-        }
+      }
     }
+    stage('Build') {
+      steps {
+        echo 'Building'
+      }
+    }
+    stage('Deploy-develop') {
+      steps {
+        echo 'Deploying'
+      }
+    }
+    stage('Deploy-staging') {
+      steps {
+        echo 'Deploying'
+      }
+    }
+    stage('Deploy-onpremise') {
+      steps {
+        echo 'Deploying'
+      }
+    }
+  }
+  options {
+    skipStagesAfterUnstable()
+  }
 }
