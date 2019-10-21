@@ -16,8 +16,17 @@ pipeline {
       }
     }
     stage('Build') {
-      steps {
-        echo 'Building'
+      parallel {
+        stage('Build') {
+          steps {
+            echo 'Building'
+          }
+        }
+        stage('Fail') {
+          steps {
+            sh 'exit 1'
+          }
+        }
       }
     }
     stage('Deploy-develop') {
