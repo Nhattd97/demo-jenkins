@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'echo "Hello world"'
+                retry(3) {
+                    sh 'echo "Hello world"'
+                }
                 sh '''
                     echo "Multiline step works too"
                     ls -lah
