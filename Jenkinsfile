@@ -41,7 +41,7 @@ pipeline {
     }
     stage('Deploy-onpremise') {
       steps {
-        echo 'Deploying'
+        echo 'Deploying '
       }
     }
   }
